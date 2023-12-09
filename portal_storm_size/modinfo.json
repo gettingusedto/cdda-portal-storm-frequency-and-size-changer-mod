@@ -1,0 +1,31 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "custom_size_ps",
+    "name": "Custom Portal Storm Size",
+    "authors": [ "gettingusedto" ],
+    "description": "Allow to tweak portal storm size at the start of the game.",
+    "category": "misc_additions",
+    "dependencies": [ "dda" ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "portal_storm_size",
+    "eoc_type": "EVENT",
+    "required_event": "game_start",
+    "global": true,
+    "effect": [
+      { "math": [ "portal_storm_distance", "=", "num_input('Size of the center of the Portal Storm.  Default is 50', 50)" ] },
+      {
+        "math": [ "portal_storm_close_distance", "=", "num_input('Size of the storm near the Portal Storm.  Default is 100', 100)" ]
+      },
+      {
+        "math": [
+          "portal_storm_distant_distance",
+          "=",
+          "num_input('Size of the storm distant away from the Portal Storm.  Default is 200', 200)"
+        ]
+      }
+    ]
+  }
+]
